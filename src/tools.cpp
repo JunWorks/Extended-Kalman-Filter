@@ -3,6 +3,8 @@
 
 using Eigen::VectorXd;
 using Eigen::MatrixXd;
+using std::cout;
+using std::endl;
 using std::vector;
 
 Tools::Tools() {}
@@ -62,7 +64,7 @@ MatrixXd Tools::CalculateJacobian(const VectorXd& x_state) {
    float rho3 = rho2*rho;
 
    // check division by zero
-   if (px == 0 || py ==0) {
+   if (px == 0 && py ==0) {
        cout << "Check px or py, they should be non-zero" << endl;
    }else{
        Hj << px/rho, py/rho, 0,0,
